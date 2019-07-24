@@ -1,41 +1,31 @@
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * This class is where your code should go, to complete the challenge.
- */
 public class MessageSender {
 
     private PhoneCompany phoneCompany;
     private Map<Integer, Integer> smsAteemps = new HashMap<>();
     private Map<Integer, Message> sms = new HashMap<>();
 
-    /*
-     * This method will be called once at the beginning, before any messages
-     * are sent, giving you a phone company to send them to.
-     */
+    
     public void connectToPhoneCompany(PhoneCompany phoneCompany) {
 
         this.phoneCompany = phoneCompany;
     }
 
-    /*
-     * This method will be called by a customer when they want you to send a
-     * message for them. Send them to the PhoneCompany.
-     */
+    
     public Boolean sendMessage(Message message) {
 
         if ((message.messageBody.toLowerCase().contains("spam"))) {
             return false;
         }
 
-    }
-
-    /*
+ /*
      * This method will be called by the phone company once they have attempted
      * to deliver a message. Outcome will be true if the message was delivered
      * or false if not (meaning you may need to retry it).
      */
+   
     public void messageOutcome(Integer messageId, Boolean outcome) {
 
         smsAteemps.putIfAbsent(messageId, 1);
