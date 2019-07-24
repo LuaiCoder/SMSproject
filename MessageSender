@@ -33,9 +33,6 @@ public class MessageSender {
 
         if (!outcome && smsAttempt <= 2) {
 
-            if (smsAttempt == 2) {
-                performDelay(100L);
-            }
             smsAteemps.put(messageId, ++smsAttempt);
             phoneCompany.deliverSmsMessage(sms.get(messageId));
         }
